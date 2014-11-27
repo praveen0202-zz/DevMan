@@ -15,7 +15,33 @@ window.onload = function () { "use strict"; gaSSDSLoad(""); }; //load after page
 */  
 
 $(document).ready(function() {
+	$('.popup-with-image').magnificPopup({
+		type: 'inline',
+		preloader: false,
+		focus: '#name',
+
+		// When elemened is focused, some mobile browsers in some cases zoom in
+		// It looks not nice, so we disable it:
+		callbacks: {
+			beforeOpen: function() {
+				if($(window).width() < 700) {
+					this.st.focus = false;
+				} else {
+					this.st.focus = '#name';
+				}
+			}
+		}
+	});
+});
+
+$(document).ready(function() {
     "use strict";
+    
+    $('.toggleModal').on('click', function (e) {
+  
+  $('.modal').toggleClass('active');
+  
+});
 
     /*
     |--------------------------------------------------------------------------
